@@ -1,8 +1,10 @@
  ﻿# Stage-App-E-Commerce-
 <div align="center">
-https://github.com/user-attachments/assets/104150ea-892e-4970-b2da-982151e76751
-https://github.com/user-attachments/assets/b16e9b93-353d-41f7-ae2d-c4f62584e8cf
-https://github.com/user-attachments/assets/641c2177-98c6-485f-8ce8-07b65a35d4a0
+<img width="1919" height="911" alt="Screenshot 2025-11-03 105205" src="https://github.com/user-attachments/assets/104150ea-892e-4970-b2da-982151e76751" />
+ login
+<img width="1889" height="712" alt="image" src="https://github.com/user-attachments/assets/b16e9b93-353d-41f7-ae2d-c4f62584e8cf" />
+register
+<img width="1586" height="848" alt="image" src="https://github.com/user-attachments/assets/641c2177-98c6-485f-8ce8-07b65a35d4a0" />
 
 </div>
 partie client
