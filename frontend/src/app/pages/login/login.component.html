@@ -1,0 +1,82 @@
+
+<body>
+<div class=" font-sans text-dark bg-white d-flex align-items-center justify-content-center vh-100 px-4">
+    <div class="shadow-lg rounded p-4 max-w-1000 w-100 ">
+      <div class="row align-items-center">
+        <!-- Left Image Section -->
+        <div class="col-md-6 d-flex justify-content-center">
+          <img src="../../../assets/login.webp" class="img-fluid w-75" alt="Login Illustration" />
+        </div>
+        <!-- Right Form Section -->
+        <div class="col-md-6">
+          <form [formGroup]="loginForm" (ngSubmit)="login()" class="w-100">
+            <!-- Title -->
+            <div class="mb-4">
+              <h3 class="login-title fw-bold text-center">Log in</h3>
+            </div>
+            <!-- Username Input -->
+            <div class="mb-3">
+              <div class="input-group">
+                <input type="text" formControlName="email" class="form-control border-bottom" placeholder="Enter email"/>
+                <span class="input-group-text bg-transparent border-bottom">
+                  <i class="bi bi-person-fill text-muted"></i>
+                </span>
+              </div>
+            </div>
+            <!-- Password Input -->
+            <div class="mb-3">
+              <div class="input-group">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  formControlName="password"
+                  class="form-control border-bottom"
+                  placeholder="Enter password"
+                />
+                <span
+                  class="input-group-text bg-transparent border-bottom cursor-pointer"
+                  (click)="togglePasswordVisibility()"
+                >
+                  <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                </span>
+              </div>
+            </div>
+            <!-- Remember Me and Forgot Password -->
+            
+            <!-- Error Message -->
+            <div *ngIf="errorMsg" class="alert alert-danger mt-3" role="alert">
+              <strong>Error!</strong> {{ errorMsg }}
+            </div>
+            <!-- Submit Button -->
+            <div class="d-flex justify-content-center mt-3">
+              <button
+                type="submit"
+                class="btn btn-primary w-50 text-center"
+                [disabled]="isLoading"
+              >
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+                <span *ngIf="!isLoading">Log in</span>
+              </button>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <button
+                type="button"
+                class="google-btn w-50"
+                (click)="loginWithGmail()"
+
+              > 
+                
+                <img width="40px" src="../../../assets/google1.png" alt="">Log in with Google
+              </button>
+            </div>
+            <!-- Registration Redirect -->
+            <p class="text-center text-sm mt-3">
+              Don't have an account?
+              <a routerLink="/register" class="loginl fw-bold">Register here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  

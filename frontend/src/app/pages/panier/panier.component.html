@@ -1,0 +1,74 @@
+<body>
+    <div class="cart-container">
+      <div class="cart-items">
+        <h2>Panier</h2>
+        <hr>
+        
+        <!-- Affichage conditionnel si le panier est vide -->
+        <div *ngIf="panierService.items.length === 0" class="empty-cart-message">
+          <p>Vous n'avez aucun article dans votre panier.</p>
+        </div>
+        
+        <!-- Affichage des articles si le panier n'est pas vide -->
+        <div *ngIf="panierService.items.length > 0">
+          <div class="cart-item" *ngFor="let item of panierService.items">
+            <div class="product-info">
+              <div class="product-image">
+                <img [src]="item.product.images[0].startsWith('http') ? item.product.images[0] : 'assets/' + item.product.images[0]"
+                  alt="Product Image">
+              </div>
+              <div class="product-details">
+                <h3>{{ item.product.name }}</h3>
+                <div class="product-price">
+                  <span *ngIf="item.product.promo > 0" class="original-price">
+                    {{ item.product.Price }},000 TND
+                  </span>
+                  <span *ngIf="item.product.promo > 0" class="discount">
+                    -{{ item.product.promo }},000 TND
+                  </span>
+                </div>
+                <span class="current-price">
+                  {{ item.product.promo > 0 ? (item.product.Price - item.product.promo) : item.product.Price }},000 TND
+                </span>
+              </div>
+            </div>
+            <div class="product-actions">
+              <input type="number" [(ngModel)]="item.quantity" class="quantity-input" min="1"
+                (change)="updateQuantity(item.product._id!, item.quantity)" />
+            </div>
+            <div class="product-total">
+              <span>{{ item.quantity * (item.product.Price - item.product.promo) }},000 TND</span>
+              <button (click)="removeFromCart(item.product._id!)" class="remove-button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Résumé (affiché uniquement si le panier n'est pas vide) -->
+      <div class="summary" *ngIf="panierService.items.length > 0">
+        <div class="d-flex">
+        <p>{{ panierService.items.length }} articles</p>
+        <small class="ms-auto delivery-cost">{{getTotal()}},000TND</small>
+        </div>
+        <div class="d-flex">
+          <p>Livraison:</p>
+          <ng-container *ngIf="getTotal() >= 300; else payant">
+            <span class="ms-auto delivery-cost">Gratuit</span>
+          </ng-container>
+          <ng-template #payant>
+            <small class="ms-auto delivery-cost">9,000 TND</small>
+          </ng-template>
+        </div>
+        <div class="d-flex total-amount">
+          <p>Total:</p>
+            <div class="ms-auto" >{{ getTotal() + (getTotal() >= 300 ? 0 : 9) }},000 TND</div>
+        </div>
+        <div class="d-flex justify-content-center pt-4">
+          <button class="checkout-button" routerLink="/checkout">Commander</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  

@@ -1,0 +1,57 @@
+<body>
+<div class="coo" *ngIf="product">
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Product Images Section -->
+      <div class="col-md-4 d-flex">
+        <!-- Main image on the left -->
+        <div class="product-images">
+          <img [src]="product.images[0].startsWith('http') ? product.images[0] : 'assets/' + product.images[0]" class="main-image img-fluid" alt="{{ product.name }}" />
+        </div>
+
+        <div class="thumbnail-images">
+          <img
+            *ngFor="let image of product.images"
+            [src]="image.startsWith('http') ? image : 'assets/' + image"
+            class="thumbnail img-thumbnail"
+            alt="Product thumbnail"
+          />
+        </div>
+      </div>
+
+      <!-- Product details-->
+      <div class="col-md-6">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <div *ngIf="product.quantity>0" class="stock-status text-success">✔ EN STOCK</div>
+        <div *ngIf="product.quantity===0" class="stock-status text-success">✔ EN Arrivage</div>
+        <div class="product-details">
+          <p>{{ product.description }}</p>
+        </div>
+
+        <div class="price-section">
+          <div class="price-and-savings">
+          <p class="original-price" *ngIf="product.promo > 0">
+            <s>{{ product.Price }},000TND</s>
+          </p>
+          <p class="current-price">
+            {{ (product.Price - product.promo) }},000TND
+          </p>
+          <p class="savings-gradient" *ngIf="product.promo > 0">
+            ÉCONOMISEZ {{ product.promo }},000TND
+          </p>
+        </div>
+        </div>
+
+        <div class="delivery-info">
+          <p>📦 Délai de livraison : 1 à 2 jours</p>
+        </div>
+
+        <button class="btn" style="margin-left: 100px;" (click)="addToCart(product)">
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding-bottom: 110px;"></div>
+</body>

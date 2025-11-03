@@ -1,0 +1,83 @@
+<div class="p-5 mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="fs-1 fw-bold">Products</h1>
+        <button class="add-product me-4" routerLink="/admin/products/add">Add Product</button>
+
+    </div>
+    <div class="shadow">
+        <mat-form-field class="w-100">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" matSort>
+        
+        <ng-container matColumnDef="productImage">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+            <td mat-cell *matCellDef="let row"> 
+                <img [src]="row.images[0]?.startsWith('http') ? row.images[0] : 'assets/' + row.images[0]" alt="{{row.name}}" style="width: 100px; max-height: 100px;">
+              </td>
+              
+        </ng-container>
+        
+
+        <ng-container matColumnDef="Images">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Images </th>
+            <td mat-cell *matCellDef="let row">
+                <div style="display: flex; flex-wrap: nowrap;">
+                    <div *ngFor="let image of row.images; let i = index">
+                        <img [src]="image?.startsWith('http') ? image : 'assets/' + image" alt="{{row.name}} (image {{i+1}})" class="me-1" style="width: 50px; max-height: 100px; margin-right: 5px;">
+                    </div>
+                </div>
+                <span *ngIf="row.images.length === 0">No images available</span>
+            </td>
+        </ng-container>
+        
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        
+
+        
+        <!-- Category Column -->
+        <ng-container matColumnDef="categoryName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+            <td mat-cell *matCellDef="let row"> {{row.categoryName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let row"> {{row.Price}} </td>
+        </ng-container>
+        <ng-container matColumnDef="promo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Discount </th>
+            <td mat-cell *matCellDef="let row"> {{row.promo}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row"> 
+                <button class="btn btn-warning  me-1" [routerLink]="'/admin/products/'+row._id">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-danger delete-button" (click)="delete(row._id)" >
+                  <i class="bi bi-trash3"></i>
+                </button>
+             </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+        </table>
+        <mat-paginator 
+        [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select ">
+        </mat-paginator>
+    </div>
+</div>

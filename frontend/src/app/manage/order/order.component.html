@@ -1,0 +1,119 @@
+<div class="p-5 mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="fs-1 fw-bold">List of orders</h1>
+    </div>
+    <div class="shadow">
+        <mat-form-field class="w-100">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search orders" #input>
+        </mat-form-field>
+        
+        <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Name Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Order_id </th>
+            <td mat-cell *matCellDef="let order"> {{order._id}}</td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let order"> {{order.address?.prenom}} {{order.address?.nom}} </td>
+          </ng-container>
+          
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let order">  
+                <select class="form-select" (change)="statuChange($event, order)" >
+                    <option value="In Processing" [selected]="order.status === 'In Processing'">In Processing</option>
+                    <option value="Shipped" [selected]="order.status === 'Shipped'">Shipped</option>
+                    <option value="Completed" [selected]="order.status === 'Completed'">Completed</option>
+                  </select> </td>
+          </ng-container>
+          
+          <!-- Date Column -->
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+            <td mat-cell *matCellDef="let order"> {{order.date | date}} </td>
+          </ng-container>
+          
+          <!-- Total Column -->
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+            <td mat-cell *matCellDef="let order" class="price"> {{order.total }},000TND </td>
+          </ng-container>
+          
+          <!-- Phone Number Column -->
+          <ng-container matColumnDef="number">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
+            <td mat-cell *matCellDef="let order"> {{order.address.telephone}} </td>
+          </ng-container>
+          
+          <!-- Items Count Column -->
+          <ng-container matColumnDef="itemsCount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Items  </th>
+            <td mat-cell *matCellDef="let order"> {{order.items.length}} </td>
+          </ng-container>
+          <!--Location-->
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+            <td mat-cell *matCellDef="let order"> {{order.address.City}}, {{order.address.adresse}} {{order.address.codePostal}} </td>
+          </ng-container>
+          
+          <!-- View Button Column -->
+          <ng-container matColumnDef="view">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> View </th>
+            <td mat-cell *matCellDef="let order">
+              <button mat-button color="primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal-' + order._id" >View</button>
+            </td>
+          </ng-container>
+          
+          
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+          <!-- Row shown when there is no matching data -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="8">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page size"></mat-paginator>
+      </div>
+      
+
+    </div>
+
+  
+  <!-- Modal -->
+  <div *ngFor="let order of dataSource.data" class="modal fade" [id]="'exampleModal-' + order._id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Order Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Displaying products from the selected order -->
+          <div *ngFor="let item of order.items" class="d-flex align-items-center border-bottom py-3">
+            <!-- Product image -->
+            <div class="flex-shrink-0">
+              <img [src]="item.product.images[0].startsWith('http') ? item.product.images[0] : 'assets/' + item.product.images[0]" alt="Product Image" class="img-fluid" style="width: 90px; height: auto;" />
+            </div>
+            <!-- Product details -->
+            <div class="flex-grow-1 ms-3">
+              <h5 class="mb-1">{{ item.product.name }}</h5>
+              <p class="mb-1">
+                <span class="price" *ngIf="item.product.promo == 0">{{ item.product.Price - item.product.promo }},000 TND</span>
+                <span class="price" *ngIf="item.product.promo > 0">{{ item.product.Price }},000 TND</span>
+              </p>
+              <h5 class="mb-1">Quantity: {{ item.quantity }}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

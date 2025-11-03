@@ -1,0 +1,9 @@
+body{
+    padding-top: 50px;
+  }
+  .price{
+    color: #ff6a00;
+  }
+  .form-select{
+    box-shadow: none;
+  }

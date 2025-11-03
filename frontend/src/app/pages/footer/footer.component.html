@@ -1,0 +1,114 @@
+<footer>
+    <div class="container">
+        <!-- Social Media Links -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center social-media-section">
+            <p>Get connected with us on social media:</p>
+            <ul class="nav">
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="https://www.google.com/"><i class="bi bi-google"></i></a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="https://www.whatsapp.com/"><i class="bi bi-whatsapp"></i></a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="https://www.twitter.com/"><i class="bi bi-twitter"></i></a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="https://www.linkedin.com/"><i class="bi bi-linkedin"></i></a>
+                </li>
+            </ul> 
+        </div>
+        
+        <!-- Footer Links Section -->
+        <div class="links-section row text-center text-md-start">
+
+            <div class="col-6 col-md-2">
+                <h3>Quick Links</h3>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link"[routerLink]="['/']">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link"[routerLink]="['/products']" >Products</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <h3>Support</h3>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help Center</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="bi bi-envelope"></i> GigaShop@gmail.com</li>
+                    <li><i class="bi bi-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="bi bi-geo-alt"></i> 1234 Main Street, City, Tunisia</li>
+                </ul>
+            </div>
+            
+            <div class="col-12 col-md-5 stay-connected"> 
+                <h3>Be the First to Know About New Deals!</h3>
+                <form [formGroup]="connectForm" (ngSubmit)="onSubmit()" class="connect-form">
+                    <input
+                      type="email"
+                      formControlName="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      required
+                    />
+                    <button type="submit">Sign Up</button>
+                  </form>
+                  
+            </div>
+            
+        </div>
+    </div>
+    <hr class="hr">
+    <div class="features-container">
+        <div class="feature-item">
+            <div class="icon-circle">
+                <i class="bi bi-emoji-smile"></i>
+            </div>
+            <p>SATISFAIT OU REMBOURSÉ</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-circle">
+                <i class="bi bi-cash-coin"></i>
+            </div>
+            <p>PAIEMENT À LA LIVRAISON</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-circle">
+                <i class="bi bi-truck"></i>
+            </div>
+            <p>GRATUITE EN 48H À PARTIR DE 300DT</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-circle">
+                <i class="bi bi-credit-card-2-back"></i>
+            </div>
+            <p>PAIEMENT EN LIGNE 100% SÉCURISÉ</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon-circle">
+                <i class="bi bi-telephone"></i>
+            </div>
+            <p>CONTACTEZ-NOUS AU 21 000 000</p>
+        </div>
+    </div>
+    
+    <hr>
+   
+        <p class="contair">&copy; 2024 GigaShop. All rights reserved.</p>
+    
+</footer>
+
+

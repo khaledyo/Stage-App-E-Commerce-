@@ -1,0 +1,36 @@
+body {
+    background-color: #f2f2f2; 
+    min-height: 750px;
+  }
+  
+  .container-fluid {
+    font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  .form-control {
+    border-radius: 0.375rem; /* Slightly rounded corners */
+    border: 1px solid #dcdcdc; /* Light border */
+    background-color: #f9f9f9; /* Subtle light-gray input background */
+  }
+  
+  button {
+    background: transparent linear-gradient(134deg, #FF3C00 0%, #FF8000 100%) 
+  0% 0% no-repeat padding-box !important;
+    border: none;
+    color: white;
+    border-radius: 0; /* Remove border radius */
+  padding: 6px 12px; /* Reduce padding */
+  font-size: 0.875rem;
+  }
+  .login,.register{
+    color: #ff6d00;
+  }
+  img {
+    border-radius: 0;
+    object-fit: cover; /* Keeps the image aspect ratio */
+  }
+  

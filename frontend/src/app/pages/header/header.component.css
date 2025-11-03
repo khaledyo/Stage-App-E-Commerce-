@@ -1,0 +1,131 @@
+.navbar {
+   background-color: #fff;
+   height: 60px;
+   border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+   font-weight: 600;
+   font-size: 28px;
+   color: #000;
+   font-family: 'Arial', sans-serif; 
+    
+}
+
+.nav-link {
+   color: #515151; /* Default gray color */
+   font-weight: 500;
+   position: relative;
+   display: inline-block;
+   padding-bottom: 4px;
+   transition: color 0.3s ease, padding-bottom 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active-link {
+   color: #000; /* Black color on hover or active state */
+}
+
+.nav-link::after {
+   content: '';
+   position: absolute;
+   bottom: -15px; /* Adjusts the space between the line and the text */
+   left: 50%; /* Starts the line at the center */
+   width: 0;
+   height: 3px; /* Thickness of the line */
+   background-color: #050505; /* Line color */
+   transform: translateX(-50%); 
+   transition: width 0.4s ease-in-out; 
+}
+
+.nav-link:hover::after,
+.nav-link.active-link::after {
+   width: 100%; 
+}
+
+
+
+.nav-link:hover::after,
+.nav-link.active-link::after {
+   width: 100%; 
+}
+.text-danger,.tex{
+   font-size: 0.9rem;
+   text-decoration: none;
+}
+.tex{
+   color:#ff6d00;
+}
+.texts {
+   
+   font-size: .895rem;
+   
+}
+
+.text-dark:hover {
+   background-color: #e1dede; /* Background color on hover */
+   
+}
+
+ i {
+   vertical-align: middle;}
+
+ .basket{
+   color: #212529;
+    font-size: 24px;
+    padding-right: 14px;
+}
+
+ 
+ .badge-icon .mat-badge-content {
+   background-color: #ff5722; 
+   color: white; 
+   font-size: 10px; 
+   font-weight: bold; 
+ }
+ 
+ 
+ .badge-icon {
+   display: inline-flex; 
+   position: relative; 
+ }
+ .mat-badge-content {
+   left: 13px;
+ }
+ 
+
+ .dropdown-toggle {
+   border: none;
+   background: transparent;
+ }
+ .text-dark{
+   color: #212529;
+   padding: 5px 8px;
+   text-decoration: none;
+   border: 1px solid #a4a3a3;
+   border-radius: 20px;
+ }
+ .dropdown{
+   color: #212529;
+   font-weight: 500;
+   font-size: .875rem;
+   border: 1px solid #a4a3a3;
+   border-radius: 20px;
+ }
+ .dropdown:hover{
+  background-color:#f3f1f1 ;
+ }
+
+.btn-light:focus, .btn-light:active {
+   background-color:#f3f1f1 ;
+   background-color: transparent !important;
+   box-shadow: none !important;
+ }
+ 
+ .dropdown-item:hover {
+   background-color: #f8f9fa;
+ }
+ 
+
+
+

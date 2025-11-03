@@ -1,0 +1,62 @@
+<body>
+    
+<div class="d-flex flex-column align-items-center px-4 mt-4">
+    <h1 *ngIf="isEdit">Update Category</h1>
+    <h1 *ngIf="!isEdit">Add New Category</h1>
+  
+    <form class="shadow-sm w-75 p-4">
+      <div class="d-flex flex-wrap gap-3">
+        <!-- Name Field -->
+        <div class="w-100">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="category.name"
+              name="name"
+              required
+            />
+          </mat-form-field>
+        </div>
+  
+        <!-- Image Field -->
+        <div class="w-100">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="category.image"
+              name="image"
+              required
+            />
+          </mat-form-field>
+        </div>
+  
+        <!-- Action Buttons -->
+        <div class="w-100 d-flex justify-content-center">
+          <button
+            *ngIf="!isEdit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!category.name || !category.image"
+            (click)="add()"
+          >
+            Add
+          </button>
+          <button
+            *ngIf="isEdit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!category.name || !category.image"
+            (click)="update()"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+  

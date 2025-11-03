@@ -1,0 +1,208 @@
+
+
+
+
+
+footer {
+    background-color:white;
+    color: #222;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Social Media Section */
+footer .social-media-section p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+i{
+    color: #555;
+}
+
+footer .social-media-section .nav-link {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .social-media-section .nav-link:hover {
+    color: #555;
+}
+
+.social-media-section .nav-link i {
+    font-size: 20px;
+}
+
+/* Footer Links Section */
+.links-section h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.links-section .nav {
+    padding: 0;
+    list-style: none;
+}
+
+.links-section .nav-item a {
+    font-size: 14px;
+    color: #222;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0px;
+    transition: color 0.3s ease;
+}
+
+.links-section .nav-item a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0.5px;
+    background-color: #343333;
+}
+
+.links-section .nav-item a:hover::after {
+    width: 100%;
+}
+
+/* Stay Connected Section */
+.stay-connected {
+    padding: 20px;
+}
+
+.stay-connected h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Connect Form */
+.connect-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.connect-form input[type="email"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid;
+    border-radius: 4px;
+    flex: 1;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.connect-form button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Copyright */
+.contair {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    /* Stack columns for smaller screens */
+    .links-section .col-2, .links-section .col-3, .links-section .col-5 {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+    
+    /* Adjust font sizes and padding */
+    footer {
+        padding: 20px 0;
+    }
+
+    footer .social-media-section p {
+        font-size: 14px;
+    }
+
+    footer .links-section h3 {
+        font-size: 16px;
+    }
+
+    .stay-connected h3 {
+        font-size: 16px;
+    }
+
+    .connect-form input[type="email"], .connect-form button {
+        width: 100%;
+        max-width: 100px;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-media-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-media-section .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white; /* Couleur de fond claire */
+    margin-top: 30px;
+    padding: 20px;
+}
+.hr {
+    
+    margin: 15px auto;
+    width: 90%; 
+  }
+  
+.feature-item {
+    text-align: center;
+    color: #000; /* Couleur du texte */
+}
+
+.icon-circle {
+    width: 40px; /* Largeur du cercle */
+    height: 40px; /* Hauteur du cercle */
+    background-color: #ff5722; /* Couleur du cercle */
+    border-radius: 40%; /* Transforme en cercle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px; /* Centrer le cercle et ajouter un espace en bas */
+}
+
+.icon-circle i {
+    color: #fff; /* Couleur blanche pour l'icône */
+    font-size: 24px; /* Taille de l'icône */
+}
+
+.feature-item p {
+    margin: 0;
+    font-weight: bold; /* Texte en gras */
+    font-size: 14px; /* Taille du texte */
+}
+
+

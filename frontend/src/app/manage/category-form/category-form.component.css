@@ -1,0 +1,46 @@
+body{
+  padding-top: 50px;
+}
+.d-flex.align-items-center.px-4.mt-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Styles for the form */
+  form.shadow-sm.w-75 {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  /* Styling the input field */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Button container */
+  .w-100.d-flex.justify-content-center {
+    margin-top: 10px;
+  }
+  
+  /* Button styles */
+  button[mat-raised-button] {
+    border-radius: 20px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Title styles */
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

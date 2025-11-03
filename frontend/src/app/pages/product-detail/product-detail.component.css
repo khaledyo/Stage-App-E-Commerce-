@@ -1,0 +1,122 @@
+/* Set the background color for the entire page */
+body {
+  background-color: #f2f2f2;
+  min-height: 750px;
+}
+
+.coo {
+  padding-top: 60px;
+}
+
+.container.mt-5 {
+  background-color: white; /* White background */
+  padding: 30px;
+  
+}
+
+.product-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stock-status {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.original-price {
+  font-size: 1.2rem;
+  color: #898989;
+}
+.price-and-savings {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Add spacing between elements */
+}
+.price-section .current-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: red;
+}
+.savings-gradient{
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+  background:#fe2424;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.price-section {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.delivery-info {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+/* Button with gradient background */
+.btn{
+  background: transparent linear-gradient(134deg, #FF3C00 0%, #FF8000 100%) 
+  0% 0% no-repeat padding-box !important;
+  border-radius: 0px;
+  color: white;
+}
+
+.btn:hover {
+  background-image: linear-gradient(135deg, #e65500, #ff8c33); 
+  border-color: #e65500; 
+  color: white; 
+}
+
+
+.product-images {
+  display: flex;
+  justify-content: center;
+  margin-right: 50px; 
+}
+
+.main-image {
+  width: 100%; /* Adjust the size of the main image */
+  max-width: 2500px; /* Limit the size */
+  height: 300px;
+}
+
+/* Thumbnail Images vertically aligned next to the main image */
+.thumbnail-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0; /* Remove any top margin */
+}
+
+.thumbnail {
+  width: 90px; /* Uniform size for all thumbnails */
+  height: 90px; /* Uniform size */
+  object-fit: cover;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Hover effect on thumbnails */
+.thumbnail:hover {
+  border: 2px solid #ff6600;
+}
+
+/* Ensure text content stays on the right side and aligns properly */
+.col-md-4, .col-md-2, .col-md-6 {
+  padding: 0px;
+  
+}
+
+.product-details,
+.price-section,
+.product-title,
+.stock-status,
+.delivery-info {
+  margin-left: 50px;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,54 @@
+<div class="container-fluid vh-100 bg-light d-flex align-items-center justify-content-center">
+    <div class="row shadow-lg bg-white rounded-3 overflow-hidden" style="max-width: 1000px;">
+        <div class="col-md-6 px-5 py-4">
+            <form [formGroup]="registrationForm" (ngSubmit)="register()" >
+                <h3 class="mb-4 register fw-bold">Registration</h3>
+                
+                <div class="form-group mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input id="username" type="text" formControlName="username" class="form-control"
+                        placeholder="Enter username" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" type="email" formControlName="email" class="form-control"
+                        placeholder="Enter email" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="password" formControlName="password" class="form-control"
+                        placeholder="Enter password" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="confirm" class="form-label">Confirm Password</label>
+                    <input id="confirm" type="password" formControlName="confirm" class="form-control"
+                        placeholder="Retype password" />
+                </div>
+                <div *ngIf="error" class="alert alert-danger" role="alert">
+                    <strong>Error:</strong> {{ error }}
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block w-50 text-center"
+                      [disabled]="isLoading"
+                    >
+                      <span *ngIf="isLoading">
+                        <span class="spinner-border spinner-border-sm"></span> Loading...
+                      </span>
+                      <span *ngIf="!isLoading">Create an Account</span>
+                    </button>
+                  </div>
+                  
+                <p class="text-sm mt-3 text-center">
+                    Already have an account?
+                    <a routerLink="/login" class="login fw-bold">Login here</a>
+                </p>
+            </form>
+        </div>
+        <div class="col-md-6 d-none d-md-block">
+            <img src="../../../assets/signup.webp" class="img-fluid w-100 h-100" alt="Secure Registration"
+                style="object-fit: cover;" />
+        </div>
+    </div>
+</div>
